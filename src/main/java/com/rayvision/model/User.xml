@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.rayvision.model.User">  
+	<resultMap id="UserMap" type="com.rayvision.model.User" >
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+	</resultMap>
+	<!--  新增记录  -->  
+    <insert id="save" parameterType="com.rayvision.model.User" useGeneratedKeys="true" keyProperty="id">  
+        insert into t_user(username,password) values(#{username},#{password})  
+    </insert>  
+	<!--  查询单条记录  -->  
+    <select id="findById" parameterType="Long" resultMap="UserMap">  
+       select * from t_user where id = #{id}  
+    </select>  
+	<!--  修改记录  -->  
+    <update id="update" parameterType="com.rayvision.model.User">  
+        update t_user set username = #{username},password = #{password} where id = #{id}  
+    </update>  
+	<!--  查询所有记录  -->  
+    <select id="findAll" resultType="com.rayvision.model.User">  
+        select * from t_user 
+    </select>  
+   <!--  统计 --> 
+    <select id="count" resultType="com.rayvision.model.User">  
+        select * from t_user 
+        <if test="username != null and '' != username">  
+        	where username=#{username}
+        </if>
+    </select>
+    <!--  分页  -->  
+    <select id="find" parameterType="Map" resultType="com.rayvision.model.User">  
+        select * from t_user  
+        <if test="username != null and '' != username">  
+        	where username=#{username}
+        </if>
+       order by id desc limit #{start},#{limit} 
+    </select> 
+    <select id="selectMap" parameterType="Map" resultType="com.rayvision.model.User">  
+        select * from t_user  
+        <if test="username != null and '' != username">  
+        	where username=#{username}
+        </if>       
+    </select> 
+	<!--  删除记录  -->  
+    <delete id="delete" parameterType="Long">  
+       delete from t_user where id = #{id}  
+    </delete>  
+     
+</mapper>  

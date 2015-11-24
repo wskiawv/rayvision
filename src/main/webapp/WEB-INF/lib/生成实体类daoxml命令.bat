@@ -1,0 +1,1 @@
+java -jar mybatis-generator-core-1.3.2.jar -configfile E:\newworkspace\rayvision\src\main\resources\generator.xml -overwrite

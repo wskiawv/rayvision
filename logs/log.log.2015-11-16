@@ -1,0 +1,231 @@
+[INFO] 2015-11-16 15:00:08 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:00:08 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72d876d9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6162db76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@213651ed, org.springframework.test.context.transaction.TransactionalTestExecutionListener@753cafa3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@632f3276]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:00:08 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:00:08 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:00:08 <Refreshing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:00:08 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:00:09 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [ERROR] 2015-11-16 15:00:09 <Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6162db76] to prepare test instance [com.rayvision.test.UserTest@6c4ffdc7]> [TestContextManager.java215]
+ org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.rayvision.test.UserTest': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.rayvision.service.UserServiceI com.rayvision.test.UserTest.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:385)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:259)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:261)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:219)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.rayvision.service.UserServiceI com.rayvision.test.UserTest.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 26 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
+	... 28 more
+[INFO] 2015-11-16 15:00:09 <Closing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:00:08 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:00:32 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:00:33 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72d876d9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6162db76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@213651ed, org.springframework.test.context.transaction.TransactionalTestExecutionListener@753cafa3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@632f3276]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:00:33 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:00:33 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:00:33 <Refreshing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:00:33 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:00:33 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [ERROR] 2015-11-16 15:00:34 <Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6162db76] to prepare test instance [com.rayvision.test.UserTest@396645ac]> [TestContextManager.java215]
+ org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.rayvision.test.UserTest': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.rayvision.service.UserServiceI com.rayvision.test.UserTest.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:385)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:259)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:261)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:219)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.rayvision.service.UserServiceI com.rayvision.test.UserTest.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 26 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
+	... 28 more
+[INFO] 2015-11-16 15:00:34 <Closing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:00:33 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:01:49 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:01:49 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@15e51549, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@72d876d9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6162db76, org.springframework.test.context.transaction.TransactionalTestExecutionListener@213651ed, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@753cafa3]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:01:49 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:01:49 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:01:50 <Refreshing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:01:50 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:01:50 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [ERROR] 2015-11-16 15:01:50 <Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@72d876d9] to prepare test instance [com.rayvision.test.UserTest@69683ca4]> [TestContextManager.java215]
+ org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.rayvision.test.UserTest': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: public com.rayvision.service.UserServiceI com.rayvision.test.UserTest.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:385)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:259)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:261)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:219)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: public com.rayvision.service.UserServiceI com.rayvision.test.UserTest.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 26 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
+	... 28 more
+[INFO] 2015-11-16 15:01:50 <Closing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:01:50 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:11:59 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:11:59 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72d876d9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6162db76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@213651ed, org.springframework.test.context.transaction.TransactionalTestExecutionListener@753cafa3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@632f3276]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:12:00 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:12:00 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:12:00 <Refreshing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:12:00 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:12:00 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [ERROR] 2015-11-16 15:12:01 <Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6162db76] to prepare test instance [com.rayvision.test.UserTest@396645ac]> [TestContextManager.java215]
+ org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.rayvision.test.UserTest': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: public com.rayvision.service.UserServiceI com.rayvision.test.UserTest.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1202)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:385)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:259)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:261)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:219)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: public com.rayvision.service.UserServiceI com.rayvision.test.UserTest.userService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:561)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 26 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.rayvision.service.UserServiceI] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1301)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1047)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:942)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:533)
+	... 28 more
+[INFO] 2015-11-16 15:12:01 <Closing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:12:00 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:14:03 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:14:03 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72d876d9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6162db76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@213651ed, org.springframework.test.context.transaction.TransactionalTestExecutionListener@753cafa3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@632f3276]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:14:03 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:14:04 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:14:04 <Refreshing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:14:04 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:14:04 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [INFO] 2015-11-16 15:14:05 <Closing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:14:04 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:19:40 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:19:40 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@5a538af7, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@22c88c75, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1c7d672a, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6d000502, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1c48fe36]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:19:40 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:19:40 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:19:40 <Refreshing org.springframework.context.support.GenericApplicationContext@473f704e: startup date [Mon Nov 16 15:19:40 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:19:40 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [INFO] 2015-11-16 15:19:41 <Closing org.springframework.context.support.GenericApplicationContext@473f704e: startup date [Mon Nov 16 15:19:40 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:26:15 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:26:15 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@15e51549, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@72d876d9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6162db76, org.springframework.test.context.transaction.TransactionalTestExecutionListener@213651ed, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@753cafa3]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:26:15 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:26:16 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:26:16 <Refreshing org.springframework.context.support.GenericApplicationContext@298f89c9: startup date [Mon Nov 16 15:26:16 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:26:16 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [INFO] 2015-11-16 15:26:17 <Closing org.springframework.context.support.GenericApplicationContext@298f89c9: startup date [Mon Nov 16 15:26:16 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:27:33 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:27:33 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@72d876d9, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@6162db76, org.springframework.test.context.support.DirtiesContextTestExecutionListener@213651ed, org.springframework.test.context.transaction.TransactionalTestExecutionListener@753cafa3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@632f3276]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:27:33 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:27:33 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:27:33 <Refreshing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:27:33 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:27:33 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [INFO] 2015-11-16 15:27:35 <Closing org.springframework.context.support.GenericApplicationContext@e9f0070: startup date [Mon Nov 16 15:27:33 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:32:49 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:32:49 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@632f3276, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2f9a13d9, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2c8d23f9, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6634c748, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@13077c64]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:32:50 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:32:50 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:32:50 <Refreshing org.springframework.context.support.GenericApplicationContext@10000ccd: startup date [Mon Nov 16 15:32:50 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:32:50 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [INFO] 2015-11-16 15:32:51 <Closing org.springframework.context.support.GenericApplicationContext@10000ccd: startup date [Mon Nov 16 15:32:50 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ [INFO] 2015-11-16 15:35:09 <Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]> [AbstractTestContextBootstrapper.java256]
+ [INFO] 2015-11-16 15:35:09 <Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6162db76, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@213651ed, org.springframework.test.context.support.DirtiesContextTestExecutionListener@753cafa3, org.springframework.test.context.transaction.TransactionalTestExecutionListener@632f3276, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2f9a13d9]> [AbstractTestContextBootstrapper.java182]
+ [INFO] 2015-11-16 15:35:09 <Loading XML bean definitions from class path resource [spring.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:35:09 <Loading XML bean definitions from class path resource [spring-mybatis.xml]> [XmlBeanDefinitionReader.java317]
+ [INFO] 2015-11-16 15:35:09 <Refreshing org.springframework.context.support.GenericApplicationContext@68d5c08f: startup date [Mon Nov 16 15:35:09 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java510]
+ [INFO] 2015-11-16 15:35:09 <Loading properties file from class path resource [config.properties]> [PropertiesLoaderSupport.java172]
+ [INFO] 2015-11-16 15:35:10 <Closing org.springframework.context.support.GenericApplicationContext@68d5c08f: startup date [Mon Nov 16 15:35:09 CST 2015]; root of context hierarchy> [AbstractApplicationContext.java862]
+ 
